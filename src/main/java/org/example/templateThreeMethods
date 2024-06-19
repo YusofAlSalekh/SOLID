@@ -1,0 +1,28 @@
+package org.example;
+
+import static jbse.meta.Analysis.ass3rt;
+
+public class Verify {
+
+    ? ? = new ?();
+    ? ? = new ?();
+    ? ? = new ?();
+
+    public void verifyAB?(? input) {
+        ? a = ?.?(input);
+        ? b = ?.?(input);
+        ass3rt(a.equals(b));
+    }
+
+    public void verifyAC?(? input) {
+        ? a = ?.?(input);
+        ? c = ?.?(input);
+        ass3rt(a.equals(c));
+    }
+
+    public void verifyBC(? input) {
+        ? b = ?.?(input);
+        ? c = ?.?(input);
+        ass3rt(b.equals(c));
+    }
+}

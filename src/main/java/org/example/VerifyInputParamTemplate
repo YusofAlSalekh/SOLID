@@ -1,0 +1,26 @@
+package org.example;
+
+import static jbse.meta.Analysis.ass3rt;
+
+public class VerifyInputParam {
+
+    {{Instances}}
+
+    public void verifyMethodAB(Param input) {
+        Param a = methodA.{{methodA}}(input);
+        Param b = methodB.{{methodB}}(input);
+        ass3rt(a.equals(b));
+    }
+
+    public void verifyMethodAC(Param input) {
+        Param a = methodA.{{methodA}}(input);
+        Param c = methodC.{{methodC}}(input);
+        ass3rt(a.equals(c));
+    }
+
+    public void verifyMethodBC(Param input) {
+        Param b = methodB.{{methodB}}(input);
+        Param c = methodC.{{methodC}}(input);
+        ass3rt(b.equals(c));
+    }
+}

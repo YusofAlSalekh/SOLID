@@ -1,0 +1,20 @@
+package org.example;
+
+import static jbse.meta.Analysis.ass3rt;
+
+public class Verify {
+
+    $Type$ var$Num$ = new $Type$();
+
+    public void verifyAB$TestNum$($InputType$ input) {
+        $ReturnType$ a = var$Num1$.$method$(input);
+        $ReturnType$ b = var$Num2$.$method$(input);
+        ass3rt(a.equals(b));
+    }
+
+    public void verifyArrayInput$TestNum$($InputType$ input) {
+        $ReturnType$ a = var$Num1$.$method$(copy(input));
+        $ReturnType$ b = var$Num2$.$method$(copy(input));
+        ass3rt(a.equals(b));
+    }
+}
