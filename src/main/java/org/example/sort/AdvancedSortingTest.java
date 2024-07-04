@@ -1,10 +1,6 @@
 package org.example.sort;
 
 
-import org.example.HeapSort;
-import org.example.QuickSort;
-import org.example.Sorter;
-
 import java.util.Arrays;
 
 public class AdvancedSortingTest {

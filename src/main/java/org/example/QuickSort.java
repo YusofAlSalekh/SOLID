@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.Arrays;
-
 public class QuickSort implements Sorter {
     @Override
     public int[] sort(int[] arr) {

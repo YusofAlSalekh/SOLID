@@ -7,5 +7,3 @@ public class IncrementationC implements Incrementation {
         return input.add(2);
     }
 }
-
-
