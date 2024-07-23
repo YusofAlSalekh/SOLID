@@ -1,5 +1,6 @@
 package org.example;
 
+@Exact
 public interface Incrementation {
 
     /**
