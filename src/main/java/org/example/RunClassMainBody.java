@@ -9,8 +9,9 @@ public class RunClassMainBody {
         for (RunDataClass dataClass : dataClasses) {
             String methodName = dataClass.getMethodName();
             String descriptor = dataClass.getDescriptor();
+            String outputFileName = methodName + "_output.txt";
             String filledTemplate = "        RunParameters " + methodName + " = new RunParameters();\n" +
-                    "        setupJBSE(" + methodName + ", \"org/example/Verify\", \"" + descriptor + "\", \"" + methodName + "\");\n" +
+                    "        setupJBSE(" + methodName + ", \"org/example/Verify\", \"" + descriptor + "\", \"" + methodName + "\", \"" + outputFileName + "\");\n" +
                     "        runJBSE(" + methodName + ");\n\n";
             methodBodies.append(filledTemplate);
         }

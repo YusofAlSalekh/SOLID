@@ -21,6 +21,5 @@ public class MyArchitectureTest {
 
         rule.check(classes);
     }
-
 }
 
