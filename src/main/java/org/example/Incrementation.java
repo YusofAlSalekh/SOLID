@@ -1,6 +1,7 @@
 package org.example;
 
-@Exact
+import org.example.Param;
+
 public interface Incrementation {
 
     /**
@@ -8,5 +9,3 @@ public interface Incrementation {
      */
     Param method(Param input);
 }
-
-

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.VerifyClassGeneration;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,8 +20,8 @@ public class MethodBodyGenerator {
         return methodBodies.toString();
     }
 
-    private MethodBodyStrategy getStrategy(String returnType) {
-        if (returnType.endsWith("[]")) {
+    private MethodBodyStrategy getStrategy(Class<?> returnType) {
+        if (returnType.isArray()) {
             return new ArrayMethodBodyStrategy();
         } else {
             return new NonArrayMethodBodyStrategy();

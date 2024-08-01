@@ -1,5 +1,6 @@
 package org.example.ifExample;
 
+import static jbse.apps.run.RunParameters.DecisionProcedureType.CVC4;
 import static jbse.apps.run.RunParameters.StateFormatMode.TEXT;
 import static jbse.apps.run.RunParameters.StepShowMode.LEAVES;
 
@@ -21,9 +22,9 @@ public class RunIf {
         p.addUserClasspath("build/classes/java/main");
         p.setJBSELibPath("libs/jbse-0.11.0-SNAPSHOT.jar");
         p.setMethodSignature("org/example/IfExample", "(I)V", "m");
-        p.setDecisionProcedureType(Z3);
-        p.setExternalDecisionProcedurePath("C:\\Users\\nogga\\Downloads\\z3-4.13.0-x64-win\\bin\\z3.exe");
-        p.setOutputFilePath("./out/runIf_z3.txt");
+        p.setDecisionProcedureType(CVC4);
+        p.setExternalDecisionProcedurePath("C:\\Users\\nogga\\Downloads\\cvc4-1.6-win64-opt.exe");
+        p.setOutputFilePath("./out/runIf_cvc4.txt");
         p.setStateFormatMode(TEXT);
         p.setStepShowMode(LEAVES);
     }

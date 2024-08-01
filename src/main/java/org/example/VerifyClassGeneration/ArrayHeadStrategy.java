@@ -1,4 +1,4 @@
-package org.example;
+package org.example.VerifyClassGeneration;
 
 public class ArrayHeadStrategy implements HeadStrategy{
     public String generateHead(){

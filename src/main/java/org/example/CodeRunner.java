@@ -1,5 +1,10 @@
 package org.example;
 
+import org.example.RunClassGeneration.RunDataClass;
+import org.example.RunClassGeneration.RunFileAssembler;
+import org.example.VerifyClassGeneration.VerifyClassParser;
+import org.example.VerifyClassGeneration.VerifyDataClass;
+import org.example.VerifyClassGeneration.VerifyFileAssembler;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Method;
@@ -43,6 +48,7 @@ public class CodeRunner {
             // Extract method data from the loaded Verify class
             List<RunDataClass> runDataClasses = VerifyClassParser.extractMethodData(verifyClass);
 
+            FileManager.createDirectoryIfNotExists("./out");
             // Generate the RunVerify class based on the extracted data
             RunFileAssembler.generateRunClass(sourceDir, runDataClasses);
 
@@ -67,14 +73,13 @@ public class CodeRunner {
 
         for (Object implementation : implementations) {
             Class<?> implementationClass = (Class<?>) implementation;
-            String className = implementationClass.getSimpleName();
             Method[] methods = implementationClass.getDeclaredMethods();
 
             for (Method method : methods) {
                 if (MethodUtils.isMethodDeclaredInInterface(method, interfaceMethods)) {
                     String methodName = method.getName();
-                    String returnType = method.getReturnType().getSimpleName();
-                    verifyDataClasses.add(new VerifyDataClass(className, methodName, returnType));
+                    Class<?> returnType = method.getReturnType();
+                    verifyDataClasses.add(new VerifyDataClass(implementationClass, methodName, returnType));
                 }
             }
         }
