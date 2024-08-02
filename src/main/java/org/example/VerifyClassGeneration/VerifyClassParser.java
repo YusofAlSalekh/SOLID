@@ -1,6 +1,8 @@
-package org.example;
+package org.example.VerifyClassGeneration;
 
 
+
+import org.example.RunClassGeneration.RunDataClass;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

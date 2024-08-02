@@ -1,4 +1,4 @@
-package org.example;
+package org.example.RunClassGeneration;
 
 public class RunClassHeadGenerator  {
     public String generateHead() {

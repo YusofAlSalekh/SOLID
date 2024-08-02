@@ -1,4 +1,4 @@
-package org.example;
+package org.example.VerifyClassGeneration;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ public class HeadGenerator {
     public String generateHead(List<VerifyDataClass> verifyDataClasses) {
         StringBuilder head = new StringBuilder();
 
-        HeadStrategy strategy = getStrategy(verifyDataClasses.get(0).getReturnType());
+        HeadStrategy strategy = getStrategy(verifyDataClasses.get(0).getReturnType().getSimpleName());
         head.append(strategy.generateHead()).append("\n");
 
         return head.toString();

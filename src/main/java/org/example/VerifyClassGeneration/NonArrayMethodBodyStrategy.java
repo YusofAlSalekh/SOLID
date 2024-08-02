@@ -1,8 +1,15 @@
-package org.example;
+package org.example.VerifyClassGeneration;
 
+import org.example.StringUtils;
+
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class NonArrayMethodBodyStrategy implements MethodBodyStrategy {
+    private Map<String, List<Class<?>>> methodToClassesMap = new HashMap<>();
+
     @Override
     public String generateMethodBody(List<VerifyDataClass> verifyDataClasses) throws Exception {
         String methodTemplate = "    public void verify$Num$($InputType$ input) {\n" +
@@ -18,15 +25,19 @@ public class NonArrayMethodBodyStrategy implements MethodBodyStrategy {
                 VerifyDataClass verifyDataClass1 = verifyDataClasses.get(i);
                 VerifyDataClass verifyDataClass2 = verifyDataClasses.get(j);
 
+                String methodName = "verify" + MethodCounter.getNext();
+
                 String filledTemplate = methodTemplate
-                        .replace("$Num$", String.valueOf(MethodCounter.getNext()))
-                        .replace("$InputType$", verifyDataClass1.getReturnType())
-                        .replace("$ReturnType$", verifyDataClass1.getReturnType())
-                        .replace("var$Num1$", StringUtils.toLowerCaseFirstLetter(verifyDataClass1.getClassName()))
-                        .replace("var$Num2$", StringUtils.toLowerCaseFirstLetter(verifyDataClass2.getClassName()))
+                        .replace("verify$Num$", methodName)
+                        .replace("$InputType$", verifyDataClass1.getReturnType().getSimpleName())
+                        .replace("$ReturnType$", verifyDataClass1.getReturnType().getSimpleName())
+                        .replace("var$Num1$", StringUtils.toLowerCaseFirstLetter(verifyDataClass1.getimplementationClass().getSimpleName()))
+                        .replace("var$Num2$", StringUtils.toLowerCaseFirstLetter(verifyDataClass2.getimplementationClass().getSimpleName()))
                         .replace("$method$", verifyDataClass1.getMethodName());
 
                 methodBodies.append(filledTemplate);
+
+                MethodToClasses.put(methodName, Arrays.asList(verifyDataClass1.getimplementationClass(), verifyDataClass2.getimplementationClass()));
             }
         }
         return methodBodies.toString();

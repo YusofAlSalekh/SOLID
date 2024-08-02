@@ -1,4 +1,4 @@
-package org.example;
+package org.example.VerifyClassGeneration;
 
 public class MethodCounter {
     private static int counter = 1;

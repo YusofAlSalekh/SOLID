@@ -1,4 +1,3 @@
-/*
 package org.example;
 
 import java.util.HashMap;
@@ -20,4 +19,3 @@ public class CachingIncrementationA extends IncrementationA {
         return result;
     }
 }
-*/
