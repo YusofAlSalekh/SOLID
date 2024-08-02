@@ -7,7 +7,9 @@ import org.example.VerifyClassGeneration.VerifyDataClass;
 import org.example.VerifyClassGeneration.VerifyFileAssembler;
 import org.reflections.Reflections;
 
+import java.io.File;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -49,6 +51,9 @@ public class CodeRunner {
             List<RunDataClass> runDataClasses = VerifyClassParser.extractMethodData(verifyClass);
 
             FileManager.createDirectoryIfNotExists("./out");
+            /*File file = Files.createTempFile();
+            file.toString()*/
+
             // Generate the RunVerify class based on the extracted data
             RunFileAssembler.generateRunClass(sourceDir, runDataClasses);
 
